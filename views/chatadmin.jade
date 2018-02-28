@@ -1,0 +1,17 @@
+extends layout
+
+block content
+ .row
+  .span3
+   ul.users(v-for="(user,index) in users" )
+    li(@click="onChangeUser(user.username)") {{user.username}}
+  .span9
+   h2 Chat
+   ul.messages
+    li(v-for="(message,index) in messages" )
+     strong {{message.username}}: 
+     span  {{message.msg}}
+   form.chat
+     textarea.form-control(v-model="inmsg")
+     .form-group
+       button.btn.btn-default(@click.prevent="onSubmit()") отправить	

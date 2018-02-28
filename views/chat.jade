@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h2 Chat
+  ul.messages
+    li(v-for="(message,index) in messages" )
+     strong {{message.username}}: 
+     span {{message.msg}}
+  form.chat
+    textarea.form-control(v-model="inmsg")
+    .form-group
+      button.btn.btn-default(@click.prevent="onSubmit()") отправить

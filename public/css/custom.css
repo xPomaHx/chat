@@ -1,0 +1,49 @@
+body {
+    padding-top: 50px;
+}
+.display-data {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 40px;
+    color: #333333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.controls .error {
+    color: #B94A48;
+}
+.messages {
+    min-height: 500px;
+    background: rgba(0, 0, 190, 0.1);
+}
+.messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.messages li {
+    padding: 5px 10px;
+}
+.messages li:nth-child(odd) {
+    background: #eee;
+}
+.messages {
+    margin-bottom: 40px
+}
+
+.credit-card-div span {
+ padding-top:10px;
+ }
+.credit-card-div img {
+ padding-top:30px;
+}
+.credit-card-div .small-font {
+ font-size:9px;
+}
+.credit-card-div .pad-adjust {
+ padding-top:10px;
+}
