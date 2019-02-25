@@ -14,7 +14,7 @@ var brprouter = require('./routes');
 
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var passportSocketIo = require("passport.socketio");
+var passportSocketIo = require('passport.socketio');
 var MongoStore = require('connect-mongo')(session);
 // sessionStore and expressSesion are now saved distinctly
 var sessionStore = new MongoStore({
@@ -127,15 +127,15 @@ io.on('connection', function(socket) {
         if (user.logged_in) {
             if (user.money <= 0) {
                 await io.to(user.username).emit('chat message', {
-                    username: "System",
-                    msg: "недостаточно денег",
+                    username: 'System',
+                    msg: 'недостаточно денег',
                     to: user.username,
                 });
                 return;
             }
             //сохранение сообщения
             var userto;
-            if (user.role == "admin") {
+            if (user.role == 'admin') {
                 console.dir(1);
                 userto = await Account.findOne({
                     username: data.to
@@ -152,8 +152,8 @@ io.on('connection', function(socket) {
             });
             await userto.save();
             //оповещение
-            if (user.role == "admin") {
-                ["admin", userto.username].forEach((userpicked) => {
+            if (user.role == 'admin') {
+                ['admin', userto.username].forEach((userpicked) => {
                     io.to(userpicked).emit('chat message', {
                         to: userto.username,
                         username: user.username,
@@ -161,7 +161,7 @@ io.on('connection', function(socket) {
                     });
                 });
             } else {
-                ["admin", user.username].forEach((userpicked) => {
+                ['admin', user.username].forEach((userpicked) => {
                     io.to(userpicked).emit('chat message', {
                         to: userto.username,
                         username: user.username,
@@ -171,8 +171,8 @@ io.on('connection', function(socket) {
             }
         } else {
             io.emit('chat message', {
-                username: "System",
-                msg: "не зарегистрирован"
+                username: 'System',
+                msg: 'не зарегистрирован'
             });
         }
     });}
